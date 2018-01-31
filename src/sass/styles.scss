@@ -1,2 +1,6 @@
 @import './variables';
 @import './global';
+
+@import '../app/home/home.component.scss';
+@import '../app/about/about.component.scss';
+@import './contact.component.scss';
