@@ -1,0 +1,57 @@
+<header>
+
+  <!--Navbar-->
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+
+    <!-- Navbar brand -->
+    <logo><a class="navbar-brand" href="#">Navbar</a></logo>
+
+    <!-- Collapsible content -->
+    <links>
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a [routerLink]="['/']" class="nav-link waves-light" mdbRippleRadius>Home</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/about']" class="nav-link waves-light" mdbRippleRadius>About</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/services']" class="nav-link waves-light" mdbRippleRadius>Services</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/portfolio']" class="nav-link waves-light" mdbRippleRadius>Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/contact']" class="nav-link waves-light" mdbRippleRadius>Contact</a>
+        </li>
+      </ul>
+      <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+  </mdb-navbar>
+  <!--/.Navbar-->
+
+    <!-- Intro Section -->
+    <div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg); background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="container flex-center">
+          <div class="row pt-5 mt-3">
+            <div class="col-md-12 mb-3">
+              <div class="intro-info-content text-center">
+                <h1 class="display-3 mb-5 wow fadeInDown animated" data-wow-delay="0.3s">MACKWEB <a class="indigo-text font-bold">DEVELOPMENT</a></h1>
+                <h5 class="font-up mb-5 mt-1 font-bold wow fadeInDown  animated" data-wow-delay="0.3s">User Interface (UI) Design & Full Stack Web Development</h5>
+                <a class="btn btn-light-blue btn-lg wow fadeInDown animated waves-light" data-wow-delay="0.3s" mdbRippleRadius [routerLink]="['/portfolio']">portfolio</a>
+                <a class="btn btn-indigo btn-lg wow fadeInDown animated waves-light" data-wow-delay="0.3s" mdbRippleRadius [routerLink]="['/about']">About me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+  <!--Main Navigation-->
+
+
