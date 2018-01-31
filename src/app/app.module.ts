@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PlaygroundComponent } from './playground/playground.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     PageNotFoundComponent,
     ContactComponent,
     ServicesComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    PlaygroundComponent
   ],
   imports: [
     BrowserModule,

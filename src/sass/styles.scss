@@ -1,6 +1,9 @@
 @import './variables';
 @import './global';
 
-@import '../app/home/home.component.scss';
-@import '../app/about/about.component.scss';
-@import './contact.component.scss';
+@import './home.component';
+@import './about.component';
+@import './services.component';
+@import './portfolio.component';
+@import './playground.component';
+@import './contact.component';
