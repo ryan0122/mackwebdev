@@ -28,33 +28,34 @@
                   </div>
 
                   <!--Body-->
-                  <div class="md-form">
-                    <i class="fa fa-user prefix grey-text"></i>
-                    <input type="text" id="name" class="form-control" mdbActive>
-                    <label for="name">Name</label>
-                  </div>
-                  <div class="md-form">
-                    <i class="fa fa-envelope prefix grey-text"></i>
-                    <input type="text" id="email" class="form-control" mdbActive>
-                    <label for="email">Email</label>
-                  </div>
-                  <div class="md-form">
-                    <i class="fa fa-phone prefix grey-text"></i>
-                    <input type="tel" id="phone" class="form-control" mdbActive>
-                    <label for="phone">Phone</label>
-                  </div>
+                  <form #form="ngForm" (submit)="sendEmail(form.value)">
+                    <div class="md-form">
+                      <i class="fa fa-user prefix grey-text"></i>
+                      <input type="text" id="name" class="form-control" mdbActive ngModel name="name">
+                      <label for="name">Name</label>
+                    </div>
+                    <div class="md-form">
+                      <i class="fa fa-envelope prefix grey-text"></i>
+                      <input type="text" id="email" class="form-control" mdbActive ngModel name="email">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="md-form">
+                      <i class="fa fa-phone prefix grey-text"></i>
+                      <input type="tel" id="phone" class="form-control" mdbActive ngModel name="phone">
+                      <label for="phone">Phone</label>
+                    </div>
 
-                  <!--Textarea with icon prefix-->
-                  <div class="md-form">
-                    <i class="fa fa-pencil prefix grey-text"></i>
-                    <textarea type="text" id="form8" class="md-textarea"></textarea>
-                    <label for="form8">How can we help?</label>
-                  </div>
+                    <!--Textarea with icon prefix-->
+                    <div class="md-form">
+                      <i class="fa fa-pencil prefix grey-text"></i>
+                      <textarea type="text" id="form8" class="md-textarea" ngModel name="message"></textarea>
+                      <label for="form8">How can we help?</label>
+                    </div>
 
-                  <div class="text-center">
-                    <button class="btn btn-lg btn-indigo waves-light" mdbRippleRadius>Send</button>
-                  </div>
-
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-lg btn-indigo waves-light" mdbRippleRadius>Send</button>
+                    </div>
+                  </form>
                 </div>
               </div>
               <!--/.Form-->
