@@ -1,10 +1,38 @@
 .home {
-  .intro-bg {
-    background-image: url(https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg);
+  header {
+    .intro-bg {
+      background-image: url(https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg);
+    }
+    .scroll-button {
+      color: #fff;
+      position: absolute;
+      left: 50%;
+      top: 85%;
+      font-size: 5rem;
+      text-shadow: black 0px 3px;
+    }
   }
+
   .feature-box {
+    text-align: center;
+    .section-heading {
+      margin-bottom: 2rem;
+    }
+    .section-description {
+      @extend .section-heading;
+    }
     i {
       font-size: 2rem;
     }
+    .features-big {
+      i {
+        margin: 1rem 0;
+        font-size: 4rem;
+      }
+    }
+    .features-small {
+      text-align:left;
+    }
   }
 }
+
