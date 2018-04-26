@@ -11,7 +11,7 @@ const httpOptions = {
 
 @Injectable()
 export class EmailService {
-  private baseUrl = '/email';
+  private baseUrl = '/api/email';
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class EmailService {
 
   handleError(error) {
     console.log(error);
-    return Observable.throw(error.json().error || 'Server error');
+    return Observable.throw(error || 'Server error');
   }
 
 

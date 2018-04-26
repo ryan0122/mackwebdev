@@ -8,6 +8,9 @@ import { EmailService } from '../shared/services/email.service';
   templateUrl: './contact.component.html'
 })
 export class ContactComponent implements OnInit {
+
+  messageSent = false;
+
   constructor(private emailService: EmailService) { }
 
   ngOnInit() {
@@ -23,6 +26,7 @@ export class ContactComponent implements OnInit {
 
   showSuccess(res){
     // Show some sort of message on the page
+    this.messageSent = true;
   }
 
 }

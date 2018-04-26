@@ -26,11 +26,10 @@ email.post('/', (req, res) => {
 // setup e-mail data with unicode symbols
 var mailOptions = {
   from: '"Mackweb Development" <webmaster@mackwebhosting.com>', // sender address
-  to: req.body.email, // Passenger info from reservation (REQ)
-  // to: 'carlos.martin@blndspt.com, melissa.kerr@blndspt.com, steven.tate@blndspt.com, rick.fuller@blndspt.com', // Passenger info from reservation (REQ)
-  subject: 'Thank you for contacting us ', // Subject line
-  text: 'Thank you for contacting us', // plaintext body
-  html: '<h2>Thank you for contacting us</h2>'
+  to: 'ryan@mackwebhosting.com', // Passenger info from reservation (REQ)
+  subject: 'Contact Us Form - Mackweb Development ', // Subject line
+  text: 'Contact Us Form - Mackweb Development', // plaintext body
+  html: '<h2>Thank you for contacting us</h2><p>Name: '+ req.body.name + '</p><p>Email: '+req.body.email+'</p><p>Phone: '+req.body.phone+'</p><p>Message: '+req.body.message+'</p>'
 };
 
   // send mail with defined transport object
@@ -40,7 +39,7 @@ var mailOptions = {
       return res.status(400).send(error);
     }
     // console.log('Message sent: ' + info.response);
-    res.send('Message sent: ' + info.response);
+    res.send({Message: 'Message sent: ' + info.response});
   });
 
 });

@@ -23,12 +23,14 @@
                 <div class="card-body z-depth-2">
                   <!--Header-->
                   <div class="text-center">
-                    <h3>Send A Message</h3>
+                    <h3 *ngIf="!messageSent">Send A Message</h3>
+                    <h3 *ngIf="messageSent">Your Message has been sent!</h3>
                     <hr>
+                    <p *ngIf="messageSent">We will reach out to you as soon as humanly possible.</p>
                   </div>
 
                   <!--Body-->
-                  <form #form="ngForm" (submit)="sendEmail(form.value)">
+                  <form *ngIf="!messageSent" #form="ngForm" (submit)="sendEmail(form.value)">
                     <div class="md-form">
                       <i class="fa fa-user prefix grey-text"></i>
                       <input type="text" id="name" class="form-control" mdbActive ngModel name="name">

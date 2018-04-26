@@ -31,7 +31,6 @@ app.use(function(req, res, next) {
 
 // Set our api routes
 app.use('/api', api);
-app.use('/email', require('./server/routes/email.js'));
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

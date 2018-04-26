@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
+const Email = require('./email');
 
 // declare axios for making http requests
 const axios = require('axios');
@@ -23,5 +23,7 @@ router.get('/posts', (req, res) => {
     res.status(500).send(error)
   });
 });
+
+router.use('/email', Email);
 
 module.exports = router;
