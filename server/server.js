@@ -1,5 +1,5 @@
 // Get dependencies
-
+require('./config/config');
 const _ = require('lodash');
 const express = require('express');
 const path = require('path');
@@ -7,11 +7,11 @@ const http = require('http');
 const bodyParser = require('body-parser');
 
 
-var {mongoose} = require('./server/db/mongoose');
+var {mongoose} = require('./db/mongoose');
 
 
 // Get our API routes
-const api = require('./server/routes/api');
+const api = require('./routes/api');
 
 const app = express();
 

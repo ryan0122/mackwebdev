@@ -1,7 +1,20 @@
 const email = require('express').Router();
 const nodemailer = require('nodemailer');
+const dayjs = require('dayjs');
+var { mongoose } = require('../db/mongoose');
+const { ContactEmail } = require('../models/contactEmail');
 
 email.post('/', (req, res) => {
+
+  const sentDate = dayjs(new Date);
+
+  const contactEmail = new ContactEmail({
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    message: req.body.message,
+    date: sentDate
+  });
 
   let smtpConfig = {
     pool: true,
@@ -23,24 +36,34 @@ email.post('/', (req, res) => {
   var transporter = nodemailer.createTransport(smtpConfig);
 
 
-// setup e-mail data with unicode symbols
-var mailOptions = {
-  from: '"Mackweb Development" <webmaster@mackwebhosting.com>', // sender address
-  to: 'ryan@mackwebhosting.com', // Passenger info from reservation (REQ)
-  subject: 'Contact Us Form - Mackweb Development ', // Subject line
-  text: 'Contact Us Form - Mackweb Development', // plaintext body
-  html: '<h2>Thank you for contacting us</h2><p>Name: '+ req.body.name + '</p><p>Email: '+req.body.email+'</p><p>Phone: '+req.body.phone+'</p><p>Message: '+req.body.message+'</p>'
-};
+  // setup e-mail data with unicode symbols
+  var mailOptions = {
+    from: '"Mackweb Development" <webmaster@mackwebhosting.com>', // sender address
+    to: 'ryan@mackwebhosting.com', // Passenger info from reservation (REQ)
+    subject: 'Contact Us Form - Mackweb Development ', // Subject line
+    text: 'Contact Us Form - Mackweb Development', // plaintext body
+    html: '<h2>Contact Form Information:</h2><p>Name: '+ req.body.name + '</p><p>Email: '+req.body.email+'</p><p>Phone: '+req.body.phone+'</p><p>Message: '+req.body.message+'</p>'
+  };
 
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, function(error, info) {
+  contactEmail.save()
+    .then((doc) => {
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
       // console.log(error);
       return res.status(400).send(error);
     }
     // console.log('Message sent: ' + info.response);
     res.send({Message: 'Message sent: ' + info.response});
+
+  })
+  }, (e) => {
+    res.status(400).send(e);
   });
+
+
+
+
 
 });
 
