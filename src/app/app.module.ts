@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,6 +21,7 @@ import { ServicesComponent } from './services/services.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @NgModule({
@@ -29,14 +34,19 @@ import { PageNotFoundComponent } from './page-not-found.component';
     ContactComponent,
     ServicesComponent,
     PortfolioComponent,
-    PlaygroundComponent
+    PlaygroundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MDBBootstrapModule.forRoot()
+    ReactiveFormsModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule,
+    NgbModule.forRoot()
 
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

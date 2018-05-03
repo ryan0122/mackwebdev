@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmailService } from '../shared/services/email.service';
 
 @Component({
@@ -8,18 +8,24 @@ import { EmailService } from '../shared/services/email.service';
   templateUrl: './contact.component.html'
 })
 export class ContactComponent implements OnInit {
-
+  contactForm: FormGroup;
   messageSent = false;
 
-  constructor(private emailService: EmailService) { }
+  constructor(private emailService: EmailService,  private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.contactForm = this.fb.group({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+      phone: new FormControl(),
+      message: new FormControl('', Validators.required)
+    });
   }
 
-  sendEmail(data) {
-    console.log(data);
+  sendEmail() {
+    console.log(this.contactForm.value);
     // Send the email then present a message saying it was successfully send
-    this.emailService.send(data).subscribe(res => {
+    this.emailService.send(this.contactForm.value).subscribe(res => {
       this.showSuccess(res);
     });
   }

@@ -1,37 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .app-container {
   height: 100%;
-}
-
-.intro-bg {
-  background-attachment: fixed;
-}
-
-
-.top-nav-collapse {
-  background-color: #82b1ff !important;
-}
-.navbar:not(.top-nav-collapse) {
-  background: transparent !important;
-}
-@media (max-width: 768px) {
-  .navbar:not(.top-nav-collapse) {
-    background: #82b1ff !important;
-  }
 }
 
 h5 {
   letter-spacing: 3px;
 }
-@media (max-width: 740px) {
-  .full-height,
-  .full-height body,
-  .full-height header,
-  .full-height header .view {
-    height: 700px;
-  }
-}
 
 footer.page-footer {
   padding: 0;
   margin: 0;
+}
+
+textarea.md-textarea {
+  padding: 2.6rem 0 1.6rem;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.hr-light {
+  border-color: #fff;
+  opacity: 0.8;
 }
